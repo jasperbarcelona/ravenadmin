@@ -1,0 +1,44 @@
+<<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+<head>
+	<title>Admin | Raven</title>
+</head>
+<body>
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Date</th>
+					<th>School</th>
+					<th>Kiosk ID</th>
+					<th>Entry Logs<br/>(Students,Faculty)</th>
+					<th>Exit Logs<br/>(Students,Faculty)</th>
+					<th>Unsynced Logs</th>
+					<th>Unsent SMS</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for report in reports %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{report.date}}</td>
+					<td>{{report.school_name}}</td>
+					<td>{{report.kiosk_id}}</td>
+					<td>{{report.student_entry_log_count}},{{report.faculty_entry_log_count}}</td>
+					<td>{{report.student_exit_log_count}},{{report.faculty_exit_log_count}}</td>
+					<td>{{report.unsynced_log_count}}</td>
+					<td>{{report.unsent_notification_count}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<script src="../static/js/jquery-1.11.0.min.js"></script>
+	<script src="../static/js/animations"></script>
+	<script src="../static/js/functions"></script>
+</body>
+</html>
